@@ -1,0 +1,68 @@
+<div class="homeContainer container-fluid">
+    <div class="headerRow row">
+        <div class="col-12 text-right">
+            <a href="https://dl.dropboxusercontent.com/s/qa8ahtwrgzxguvn/MerryBrewGuide.pdf?dl=0"
+                download="MerryBrewGuide"><button class="btn guideDownloadButton"><i
+                        class="fas fa-question fa-3x"></i></button></a>
+        </div>
+        <div class="col-12 text-center">
+            <h1 class="title">MerryBrew</h1>
+            <img ng-src="images/LogoImage.png" class="HeaderImage">
+        </div>
+        <div id="sideNav" class="sideNav">
+            <div class="sideNavHeader">
+                <div>
+                    <button class="btn sideNavCloseButton" ng-click="closeNav()"><i
+                            class="fas fa-times fa-3x"></i></button>
+                </div>
+                <img ng-src="images/LogoImage.png" class="sideNavImage">
+            </div>
+            <div class="sideNavContent">
+                <a href="#!Home">
+                    <div class="row">
+                        <div class="col-2 sidenavContentSectionContainer">
+                            <i class="fas fa-glass-martini-alt fa-2x"></i>
+                        </div>
+                        <h2>Search Cocktails</h2>
+                    </div>
+                </a>
+                <a href="#!Favourites">
+                    <div class="row">
+                        <div class="col-2 sidenavContentSectionContainer">
+                            <i class="fas fa-star fa-2x"></i>
+                        </div>
+                        <h2>Favourites</h2>
+                    </div>
+                </a>
+                <div class="row logout" ng-controller="logoutController" ng-click="logout()">
+                    <div class="col-2 sidenavContentSectionContainer">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </div>
+                    <h2>Log Out</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn" ng-click="openNav()"><i class="fas fa-align-justify fa-3x"></i></button>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <form class="searchForm" ng-submit="getSearchedInput(); searchCocktail()">
+                <label for="search"></label>
+                <input type="text" id="search" name="search">
+                <button class="btn" type="submit"><i class="fas fa-search fa-3x"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="row searchResultsRow">
+        <div class="col-sm-5 col-lg-2 cocktailResultsContainer" ng-if="ShowSearchResults"
+            ng-repeat="cocktail in cocktails">
+            <a href="#!CocktailDetails" ng-click="selectedCocktail($index)">
+                <h3 class="text-center cocktailHeader"><strong>{{cocktail.strDrink}}</strong></h3>
+                <img ng-src="{{cocktail.strDrinkThumb}}" alt="Cocktail image" class="cocktailImageSearchResult">
+            </a>
+        </div>
+
+    </div>
+</div>

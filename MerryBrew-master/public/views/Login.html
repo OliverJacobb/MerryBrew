@@ -1,0 +1,21 @@
+<div class="main">
+    <p class="sign" align="center">Login</p>
+    <form class="form1" ng-submit="login()">
+        <input class="un " type="text" align="center" name="username" placeholder="Username"
+            ng-model="loginForm.username" required>
+        <input class="pass" type="password" align="center" name="password" placeholder="Password"
+            ng-model="loginForm.password" required>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-danger btn-lg logInButton" align="center"
+                    ng-disabled="disabled">Sign In</button>
+            </div>
+        </div>
+</div>
+<div class="row" ng-if="showLoginFailedAlert">
+    <div class="col-12 text-center">
+        <div class="alert alert-danger">
+            <strong>Login Failed!</strong> Incorrect email or password supplied.
+        </div>
+    </div>
+</div>

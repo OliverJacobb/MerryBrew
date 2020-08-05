@@ -1,0 +1,29 @@
+<div class="main">
+    <p class="sign" align="center">Register</p>
+    <form class="form1">
+        <input class="un" type="text" align="center" placeholder="Username" name="username"
+            ng-model="registerForm.username" required>
+        <input class="pass" type="password" align="center" placeholder="Password" name="password"
+            ng-model="registerForm.password" required>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-danger registerButton" align="center"
+                    ng-click="register()">Register</button>
+            </div>
+        </div>
+</div>
+<div class="row" ng-if="showRegistrationFailedAlert">
+    <div class="col-12 text-center">
+        <div class="alert alert-info">
+            <strong>Registration Failed!</strong> Username taken.
+        </div>
+    </div>
+</div>
+<div class="row" ng-if="showRegistrationFailedAlertPassword">
+    <div class="col-12 text-center">
+        <div class="alert alert-danger">
+            <strong>Registration Failed!</strong> Your password must be at least 8 characters, contain at least 1
+            uppercase and lowercase letter and 1 special character.
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="homeContainer container-fluid">
+    <div class="headerRow row">
+        <div class="col-12 text-center">
+            <h1 class="title">MerryBrew</h1>
+            <img ng-src="images/LogoImage.png" class="HeaderImage" >
+        </div>
+        <div id="sideNav" class="sideNav" >
+            <div class="sideNavHeader sideNavHeaderCocktailDetails">
+                <div>
+                    <button class="btn sideNavCloseButton" ng-click="closeNav()"><i
+                            class="fas fa-times fa-3x"></i></button>
+                </div>
+                <img ng-src="images/LogoImage.png" class="sideNavImage">
+            </div>
+            <div class="sideNavContent">
+                <a href="#!Home">
+                    <div class="row">
+                        <div class="col-2 sidenavContentSectionContainer">
+                            <i class="fas fa-glass-martini-alt fa-2x"></i>
+                        </div>
+                        <h2>Search Cocktails</h2>
+                    </div>
+                </a>
+                <a href="#!Favourites">
+                    <div class="row">
+                        <div class="col-2 sidenavContentSectionContainer">
+                            <i class="fas fa-star fa-2x"></i>
+                        </div>
+                        <h2>Favourites</h2>
+                    </div>
+                </a>
+                <div class="row logout" ng-controller="logoutController" ng-click="logout()">
+                    <div class="col-2 sidenavContentSectionContainer">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </div>
+                    <h2>Log Out</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <button class="btn" ng-click="openNav()"><i class="fas fa-align-justify fa-3x"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="row cocktailInformationRow" ng-repeat="cocktail in selectedCocktailData">
+        <div class="col-sm-12 selectedCocktailHeaderContainer text-center">
+            <h2 class="selectedCocktailName text-center"><strong>{{cocktail.strDrink}}</strong></h2>
+            <img ng-src="{{cocktail.strDrinkThumb}}" class="selectedCocktailImage"><span><button
+                    class="btn favouritesAddButton"><i class="fas fa-star fa-3x" ng-click="AddFavourite();"
+                        ng-class="{'FavouriteSelected':favouriteState}"></i></button></span>
+            <div class="cocktailInstructions text-center">
+                <p> {{cocktail.strInstructions}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 cocktailDetailsContainer">
+            <h3 class="text-center ingredientsHeader" ng-show="cocktailIngredients.length > 0">
+                <strong>Ingredients</strong></h3>
+            <ul class="ingredientsList" ng-repeat="ingredient in cocktailIngredients track by $index">
+                <li>{{ingredient}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
